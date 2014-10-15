@@ -1,6 +1,6 @@
 {
   "name": "winston-logs-display",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Node.js module for express, main purpose of that module is make easy access to winston logs",
   "main": "app.js",
   "scripts": {
