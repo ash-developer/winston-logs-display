@@ -1,7 +1,7 @@
 module.exports = function(app, logger) {
   var jade = require('jade');
   var fs = require('fs');
-  var logPath = logger.transports.file.dirname + logger.transports.file.filename;
+  var logPath = logger.transports.file.dirname + '/' + logger.transports.file.filename;
 
   app.get('/logs', function(req, res, next) {
     fs.exists(logPath, function(exist) {
