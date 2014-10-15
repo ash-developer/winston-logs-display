@@ -1,0 +1,20 @@
+doctype html
+html(lang="en")
+    head
+        title= "Logs"
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css")
+    body
+        div(class="container")
+            h1= "Logs"
+            table(class="table table-condensed")
+                thead
+                    tr
+                        th= "Level"
+                        th= "Message"
+                        th= "Timestamp"
+                tbody
+                    each log in lines
+                        tr
+                            td= log.level
+                            td= log.message
+                            td= log.timestamp
