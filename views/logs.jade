@@ -34,8 +34,8 @@ html(lang="en")
                             a(onclick="toggleDetails("+i+")")= "details"
                     tr(class="hide details", id="details-" + i)
                         td(colspan=4)
-                        each value, key in log
-                            if key != 'level' && key != 'message' && key != 'timestamp'
-                                div
-                                    strong= key
-                                    div(style="word-wrap: break-word;")= JSON.stringify(value)
+                            each value, key in log
+                                if key != 'level' && key != 'message' && key != 'timestamp'
+                                    div
+                                        strong= key
+                                        div(style="word-wrap: break-word;")= JSON.stringify(value)
