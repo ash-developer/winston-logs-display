@@ -2,7 +2,18 @@ doctype html
 html(lang="en")
     head
         title= "Logs"
-        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css")
+        link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css")
+        script(type="text/javascript", src="//code.jquery.com/jquery-2.1.3.min.js")
+        script(type="text/javascript").
+            var toggleDetails = function (i) {
+                var currentElement = $('#details-' + i);
+                if (currentElement.hasClass('hide')) {
+                    $('.details').addClass('hide');
+                    $('#details-' + i).removeClass('hide');
+                } else {
+                    $('#details-' + i).addClass('hide');
+                }
+            };
     body
         div(class="container")
             h1= "Logs"
@@ -12,9 +23,19 @@ html(lang="en")
                         th= "Level"
                         th= "Message"
                         th= "Timestamp"
+                        th= ""
                 tbody
-                    each log in lines
-                        tr
-                            td= log.level
-                            td= log.message
-                            td= log.timestamp
+                each log, i in lines
+                    tr
+                        td= log.level
+                        td= log.message
+                        td= log.timestamp
+                        td
+                            a(onclick="toggleDetails("+i+")")= "details"
+                    tr(class="hide details", id="details-" + i)
+                        td(colspan=4)
+                        each value, key in log
+                            if key != 'level' && key != 'message' && key != 'timestamp'
+                                div
+                                    strong= key
+                                    div(style="word-wrap: break-word;")= JSON.stringify(value)
