@@ -28,7 +28,8 @@
   "homepage": "https://github.com/ash-developer/winston-logs-display",
   "dependencies": {
     "express": "^4.9.4",
-    "winston": "^0.8.3",
-    "jade": "^1.7.0"
+    "jade": "^1.7.0",
+    "serve-static": "^1.10.1",
+    "winston": "^0.8.3"
   }
 }
