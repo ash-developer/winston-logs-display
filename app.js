@@ -1,11 +1,13 @@
 'use strict';
 
 var jade = require('jade'),
-    wld = new (require('./lib/wld'))();
+    wld;
 
 module.exports = function (app, logger) {
 
-    app.get('/logs/:page', function(req, res, next) {
+    wld = new (require('./lib/wld'))(logger);
+
+    app.get('/logs', function(req, res, next) {
         res.redirect('/logs/1');
     });
 
