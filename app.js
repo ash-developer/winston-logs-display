@@ -1,19 +1,24 @@
 'use strict';
 
-var serveStatic = require('serve-static');
+var jade = require('jade'),
+    wld = new (require('./lib/wld'))();
 
-function Hamm(logger, title) {
+module.exports = function (app, logger) {
 
-}
+    app.get('/logs/:page', function(req, res, next) {
+        res.redirect('/logs/1');
+    });
 
-Hamm.prototype.display = function () {
-    return serveStatic('public', {index: ['index.html']})
+    app.get('/logs/:page', function(req, res, next) {
+        var page = req.params.page || 1;
+
+        wld.list({
+            limit: 50,
+            offset: (page - 1) * 50
+        }).then(function (logs) {
+            res.send(jade.renderFile(__dirname + '/views/logs.jade', {logs: logs}, null));
+        });
+
+    });
+
 };
-
-Hamm.prototype.flows = function (socket) {
-
-    socket.on('test', function () {});
-
-};
-
-module.exports = Hamm;
