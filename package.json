@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/ash-developer/winston-logs-display",
   "engines": {
-    "node" : ">=6.5.0"
+    "node": ">=6.5.0"
   },
   "dependencies": {
     "bluebird": "^3.5.1",
