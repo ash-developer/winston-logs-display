@@ -1,6 +1,6 @@
 {
   "name": "winston-logs-display",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Node.js module for express, main purpose of that module is make easy access to winston logs",
   "main": "app.js",
   "scripts": {
@@ -26,10 +26,15 @@
     "url": "https://github.com/ash-developer/winston-logs-display/issues"
   },
   "homepage": "https://github.com/ash-developer/winston-logs-display",
+  "engines": {
+    "node" : ">=6.5.0"
+  },
   "dependencies": {
+    "bluebird": "^3.5.1",
     "express": "^4.9.4",
     "jade": "^1.7.0",
+    "lodash": "^4.17.5",
     "serve-static": "^1.10.1",
-    "winston": "^0.8.3"
+    "winston": "^2.4.2"
   }
 }
