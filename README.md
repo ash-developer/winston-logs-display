@@ -12,11 +12,10 @@ npm install --save-dev winston-logs-display
 And there is simple example of using it
 
 ```
-var app = require('express')(),
-    winston = require('winston'),
-    logger;
+const app = require('express')();
+const winston = require('winston');
 
-logger = new (winston.Logger)({
+const logger = new (winston.Logger)({
     transports: [
         new (winston.transports.File)({
             filename: 'winston.log'
@@ -24,10 +23,10 @@ logger = new (winston.Logger)({
     ]
 });
 
-require('winston-logs-display')(app, logger);
+require('./app.js')(app, logger);
 
 app.listen(3000, function () {
-    console.log('server started on port 3000');
+    logger.log('info', 'server started on port 3000');
 });
 ```
 

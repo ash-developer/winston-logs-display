@@ -28,7 +28,7 @@ module.exports = function (app, logger) {
     wld.list({
       limit: itemsOnPage,
       offset: (page - 1) * itemsOnPage
-    }).then(function (logs) {
+    }).then(logs => {
       res.send(jade.renderFile(__dirname + '/views/logs.jade', {
         logs,
         prevPage: page > 1 ? page - 1 : null,

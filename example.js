@@ -12,5 +12,5 @@ const logger = new (winston.Logger)({
 require('./app.js')(app, logger);
 
 app.listen(3000, function () {
-  logger.log('info', 'Hello distributed log files!');
+    logger.log('info', 'Hello distributed log files!');
 });
