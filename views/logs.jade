@@ -42,9 +42,10 @@ html(lang="en")
                                     div
                                         strong= key
                                         div(style="word-wrap: break-word;")= JSON.stringify(value)
-            if pages.length > 1
-                nav
-                    ul.pagination
-                        each page in pages
-                            li
-                                a(href='/logs/' + page)= page
+            nav
+                ul.pagination
+                    if prevPage
+                        li
+                            a(href='/logs/' + prevPage)= 'prev'
+                    li
+                        a(href='/logs/' + nextPage)= 'next'
